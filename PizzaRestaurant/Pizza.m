@@ -28,30 +28,17 @@
     return self;
 }
 
-+ (enum PizzaSize) setEnumSizeFromString: (NSString *) userInput {
-    NSString *lowercasedUserInputSize = userInput.lowercaseString;
-    if ([lowercasedUserInputSize isEqualToString:@"small"]) {
-        return small;
-    } else if ([lowercasedUserInputSize isEqualToString:@"medium"]) {
-        return medium;
-    } else if ([lowercasedUserInputSize isEqualToString:@"large"]) {
-        return large;
-    }
-    else {
-        return small;
-    }
-}
 
 - (NSString *) size {
     switch (self.pizzaSize) {
         case small: {
-            return @"Small";
+            return @"small";
         }
         case medium: {
-            return @"Medium";
+            return @"medium";
         }
         case large: {
-            return @"Large";
+            return @"large";
         }
     }
 }

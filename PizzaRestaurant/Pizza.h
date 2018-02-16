@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-enum PizzaSize { small, medium, large } PizzaSize;
+enum PizzaSize { small, medium, large} PizzaSize;
 
 @interface Pizza : NSObject
 
@@ -29,7 +29,6 @@ enum PizzaSize { small, medium, large } PizzaSize;
 - (instancetype)initWithSize:(enum PizzaSize)size AndToppings:(NSArray *)toppings;
 - (NSString *) size;
 - (NSString *) getToppings;
-+ (enum PizzaSize) setEnumSizeFromString: (NSString *) sizeString;
 
 
 

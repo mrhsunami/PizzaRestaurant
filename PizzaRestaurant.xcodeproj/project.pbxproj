@@ -10,6 +10,8 @@
 		6001EC81197B4EC300F97011 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6001EC80197B4EC300F97011 /* Foundation.framework */; };
 		6001EC84197B4EC300F97011 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6001EC83197B4EC300F97011 /* main.m */; };
 		6001EC90197B502F00F97011 /* Kitchen.m in Sources */ = {isa = PBXBuildFile; fileRef = 6001EC8F197B502F00F97011 /* Kitchen.m */; };
+		D88FC8D520377D0C00CA4AB4 /* ManagersWhoHateAnchovies.m in Sources */ = {isa = PBXBuildFile; fileRef = D88FC8D420377D0C00CA4AB4 /* ManagersWhoHateAnchovies.m */; };
+		D88FC8D82037809700CA4AB4 /* ManagersWhoAreCheery.m in Sources */ = {isa = PBXBuildFile; fileRef = D88FC8D72037809700CA4AB4 /* ManagersWhoAreCheery.m */; };
 		D8B4F33320362C02003F5FC1 /* Pizza.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B4F33220362C02003F5FC1 /* Pizza.m */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +34,10 @@
 		6001EC86197B4EC300F97011 /* PizzaRestaurant-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PizzaRestaurant-Prefix.pch"; sourceTree = "<group>"; };
 		6001EC8E197B502F00F97011 /* Kitchen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Kitchen.h; sourceTree = "<group>"; };
 		6001EC8F197B502F00F97011 /* Kitchen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Kitchen.m; sourceTree = "<group>"; };
+		D88FC8D320377D0C00CA4AB4 /* ManagersWhoHateAnchovies.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ManagersWhoHateAnchovies.h; sourceTree = "<group>"; };
+		D88FC8D420377D0C00CA4AB4 /* ManagersWhoHateAnchovies.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ManagersWhoHateAnchovies.m; sourceTree = "<group>"; };
+		D88FC8D62037809700CA4AB4 /* ManagersWhoAreCheery.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ManagersWhoAreCheery.h; sourceTree = "<group>"; };
+		D88FC8D72037809700CA4AB4 /* ManagersWhoAreCheery.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ManagersWhoAreCheery.m; sourceTree = "<group>"; };
 		D8B4F33120362C02003F5FC1 /* Pizza.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Pizza.h; sourceTree = "<group>"; };
 		D8B4F33220362C02003F5FC1 /* Pizza.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Pizza.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -81,6 +87,10 @@
 				D8B4F33220362C02003F5FC1 /* Pizza.m */,
 				6001EC8E197B502F00F97011 /* Kitchen.h */,
 				6001EC8F197B502F00F97011 /* Kitchen.m */,
+				D88FC8D320377D0C00CA4AB4 /* ManagersWhoHateAnchovies.h */,
+				D88FC8D420377D0C00CA4AB4 /* ManagersWhoHateAnchovies.m */,
+				D88FC8D62037809700CA4AB4 /* ManagersWhoAreCheery.h */,
+				D88FC8D72037809700CA4AB4 /* ManagersWhoAreCheery.m */,
 				6001EC85197B4EC300F97011 /* Supporting Files */,
 			);
 			path = PizzaRestaurant;
@@ -148,6 +158,8 @@
 				D8B4F33320362C02003F5FC1 /* Pizza.m in Sources */,
 				6001EC90197B502F00F97011 /* Kitchen.m in Sources */,
 				6001EC84197B4EC300F97011 /* main.m in Sources */,
+				D88FC8D520377D0C00CA4AB4 /* ManagersWhoHateAnchovies.m in Sources */,
+				D88FC8D82037809700CA4AB4 /* ManagersWhoAreCheery.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,13 +10,44 @@
 
 @implementation Kitchen
 
+- (BOOL) isValidPizzaSize: (NSString *) hopefullyAValidSizeString {
+    NSString *lowercasedUserInputSize = hopefullyAValidSizeString.lowercaseString;
+    if ([lowercasedUserInputSize isEqualToString:@"small"]) {
+        return YES;
+    } else if ([lowercasedUserInputSize isEqualToString:@"medium"]) {
+        return YES;
+    } else if ([lowercasedUserInputSize isEqualToString:@"large"]) {
+        return YES;
+    } else {
+        return NO;
+    }
+}
+
+- (enum PizzaSize) setEnumSizeFromString: (NSString *) userInput {
+    NSString *lowercasedUserInputSize = userInput.lowercaseString;
+    if ([lowercasedUserInputSize isEqualToString:@"small"]) {
+        return small;
+    } else if ([lowercasedUserInputSize isEqualToString:@"medium"]) {
+        return medium;
+    } else {
+        return large;
+    }
+}
+
 - (Pizza *)makePizza:(enum PizzaSize)size toppings:(NSArray *)toppings {
 //    -(BOOL) kitchen:(Kitchen *)kitchen shouldMakePizzaOFSize: (enum PizzaSize)size andToppings: (NSArray *)toppings;
 //    -(BOOL) kitchenShouldUpgradeOrder: (Kitchen *)kitchen;
 //    -(void) kitchenDidMakePizza: (Pizza *)pizza; // make this method optional
     
-    BOOL shouldMakePizzaOFSize = [self.delegate kitchen:self shouldMakePizzaOFSize:size andToppings:toppings];
-    BOOL kitchenShouldUpgradeOrder = [self.delegate kitchenShouldUpgradeOrder:self];
+    BOOL shouldMakePizzaOFSize = YES;
+    BOOL kitchenShouldUpgradeOrder = NO;
+    
+    
+    if (self.delegate) {
+        // call the first two methods first
+        shouldMakePizzaOFSize = [self.delegate kitchen:self shouldMakePizzaOFSize:size andToppings:toppings];
+        kitchenShouldUpgradeOrder = [self.delegate kitchenShouldUpgradeOrder:self];
+    }
     
     if (shouldMakePizzaOFSize) {
         
@@ -27,8 +58,14 @@
             thisPizzaSize = size;
         }
         
-        Pizza *newPizza = [[Pizza alloc] initWithSize: size AndToppings:toppings];
-        [self.delegate kitchenDidMakePizza:newPizza];
+        Pizza *newPizza = [[Pizza alloc] initWithSize: thisPizzaSize AndToppings:toppings];
+        
+        
+        if ([self.delegate respondsToSelector: @selector(kitchenDidMakePizza:)] ) {
+            [self.delegate kitchenDidMakePizza:newPizza];
+        }
+        
+        
         return newPizza;
     } else {
         return nil;

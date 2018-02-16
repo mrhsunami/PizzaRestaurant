@@ -10,6 +10,8 @@
 
 #import "Kitchen.h"
 #import "Pizza.h"
+#import "ManagersWhoAreCheery.h"
+#import "ManagersWhoHateAnchovies.h"
 
 int main(int argc, const char * argv[])
 {
@@ -19,6 +21,8 @@ int main(int argc, const char * argv[])
         NSLog(@"Please pick your pizza size and toppings:");
         
         Kitchen *restaurantKitchen = [Kitchen new];
+        ManagersWhoAreCheery *happyGuy = [ManagersWhoAreCheery new];
+        ManagersWhoHateAnchovies *grumpyGuy = [ManagersWhoHateAnchovies new];
         
         while (TRUE) {
             // Loop forever
@@ -37,6 +41,13 @@ int main(int argc, const char * argv[])
             
             NSString *sizeString = commandWords.firstObject;
             
+            
+            BOOL validSize = [restaurantKitchen isValidPizzaSize: sizeString];
+            
+            if (!validSize) {
+                NSLog(@"The size you entered, \"%@,\" is not available.", sizeString);
+                continue;
+            }
 //            NSRange range = NSMakeRange(1, commandWords.count - 1);
             
             NSArray *arrayWithOnlyToppings = [[NSArray alloc]init];
@@ -44,12 +55,33 @@ int main(int argc, const char * argv[])
                 arrayWithOnlyToppings = [arrayWithOnlyToppings arrayByAddingObject: commandWords[i]];
             }
             
+            NSLog(@"Pick your manager: happyGuy, grumpyGuy, or no manager");
+            
+            NSLog(@"> ");
+            char mgr[100];
+            fgets (mgr, 100, stdin);
+            
+            NSString *manager = [[NSString alloc] initWithUTF8String:mgr];
+            manager = [manager stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+            
+            NSLog(@"You chose %@", manager);
+            
+            if ([manager isEqualToString:@"happyGuy"]) {
+                restaurantKitchen.delegate = happyGuy;
+            } else if ([manager isEqualToString:@"grumpyGuy"]) {
+                restaurantKitchen.delegate = grumpyGuy;
+            } else {
+                restaurantKitchen.delegate = nil;
+            }
+            
+            
+            
             
             // And then send some message to the kitchen...
-            Pizza *newPizza = [restaurantKitchen makePizza: [Pizza setEnumSizeFromString:sizeString ] toppings:arrayWithOnlyToppings];
+            Pizza *newPizza = [restaurantKitchen makePizza: [restaurantKitchen setEnumSizeFromString:sizeString] toppings:arrayWithOnlyToppings];
             
             // Checks the size and toppings of this newPizza that has been initiated
-            NSLog(@"%@",[newPizza size]);
+            NSLog(@"Here is a %@ pizza with the following toppings:",[newPizza size]);
             NSLog(@"%@",[newPizza getToppings]);
         }
 

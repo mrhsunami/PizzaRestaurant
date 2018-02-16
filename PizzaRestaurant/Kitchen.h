@@ -14,7 +14,7 @@
 
 
 
-@protocol KitchenDelegate
+@protocol KitchenDelegate <NSObject>
 
 -(BOOL) kitchen:(Kitchen *)kitchen shouldMakePizzaOFSize: (enum PizzaSize)size andToppings: (NSArray *)toppings;
 -(BOOL) kitchenShouldUpgradeOrder: (Kitchen *)kitchen;
@@ -26,9 +26,12 @@
 
 
 
+
 @interface Kitchen : NSObject
 
 - (Pizza *)makePizza:(enum PizzaSize)size toppings:(NSArray *)toppings;
+- (enum PizzaSize) setEnumSizeFromString: (NSString *) sizeString;
+- (BOOL) isValidPizzaSize: (NSString *) hopefullyAValidSizeString;
 
 @property (weak, nonatomic) id<KitchenDelegate> delegate;
 
