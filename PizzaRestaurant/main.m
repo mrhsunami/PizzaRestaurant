@@ -39,14 +39,14 @@ int main(int argc, const char * argv[])
             
 //            NSRange range = NSMakeRange(1, commandWords.count - 1);
             
-            NSArray *toppingsOnly = [[NSArray alloc]init];
+            NSArray *arrayWithOnlyToppings = [[NSArray alloc]init];
             for (int i = 1; i < commandWords.count ; i++) {
-                toppingsOnly = [toppingsOnly arrayByAddingObject: commandWords[i]];
+                arrayWithOnlyToppings = [arrayWithOnlyToppings arrayByAddingObject: commandWords[i]];
             }
             
             
             // And then send some message to the kitchen...
-            Pizza *newPizza = [restaurantKitchen makePizzaWithSize: [Pizza sizeFromString:sizeString ] toppings:toppingsOnly];
+            Pizza *newPizza = [restaurantKitchen makePizza: [Pizza setEnumSizeFromString:sizeString ] toppings:arrayWithOnlyToppings];
             
             // Checks the size and toppings of this newPizza that has been initiated
             NSLog(@"%@",[newPizza size]);

@@ -10,9 +10,29 @@
 
 @implementation Kitchen
 
-- (Pizza *)makePizzaWithSize:(enum PizzaSize)size toppings:(NSArray *)toppings {
-    Pizza *newPizza = [[Pizza alloc] initWithSize: size AndToppings:toppings];
-    return newPizza;
+- (Pizza *)makePizza:(enum PizzaSize)size toppings:(NSArray *)toppings {
+//    -(BOOL) kitchen:(Kitchen *)kitchen shouldMakePizzaOFSize: (enum PizzaSize)size andToppings: (NSArray *)toppings;
+//    -(BOOL) kitchenShouldUpgradeOrder: (Kitchen *)kitchen;
+//    -(void) kitchenDidMakePizza: (Pizza *)pizza; // make this method optional
+    
+    BOOL shouldMakePizzaOFSize = [self.delegate kitchen:self shouldMakePizzaOFSize:size andToppings:toppings];
+    BOOL kitchenShouldUpgradeOrder = [self.delegate kitchenShouldUpgradeOrder:self];
+    
+    if (shouldMakePizzaOFSize) {
+        
+        enum PizzaSize thisPizzaSize;
+        if (kitchenShouldUpgradeOrder) {
+            thisPizzaSize = large;
+        } else {
+            thisPizzaSize = size;
+        }
+        
+        Pizza *newPizza = [[Pizza alloc] initWithSize: size AndToppings:toppings];
+        [self.delegate kitchenDidMakePizza:newPizza];
+        return newPizza;
+    } else {
+        return nil;
+    }
 }
 
 @end

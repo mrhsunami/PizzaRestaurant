@@ -10,7 +10,6 @@
 
 enum PizzaSize { small, medium, large } PizzaSize;
 
-
 @interface Pizza : NSObject
 
 // two methods. 1. returns value for size, 2. returns toppings. Use enum for size
@@ -30,7 +29,7 @@ enum PizzaSize { small, medium, large } PizzaSize;
 - (instancetype)initWithSize:(enum PizzaSize)size AndToppings:(NSArray *)toppings;
 - (NSString *) size;
 - (NSString *) getToppings;
-+ (enum PizzaSize) sizeFromString: (NSString *) sizeString;
++ (enum PizzaSize) setEnumSizeFromString: (NSString *) sizeString;
 
 
 
